@@ -1,18 +1,41 @@
 <form class="form-inline">
 
+  <!--<div class="form-group">-->
+  <!--<label for="tele">手机号码：</label>-->
+  <!--<input type="tel" class="form-control" id="tele" name="tele" [(ngModel)]="tele" >-->
+  <!--</div>-->
   <div class="form-group">
-    <label for="exampleInputName2">手机号码：</label>
-    <input type="tel" class="form-control" id="tele" >
+    <label for="begiinDate">开始日期：</label>
+    <p-calendar [(ngModel)]="d1" name="d1" showButtonBar="true" dateFormat="yy-mm-dd  " showTime="true"
+                id="begiinDate"></p-calendar>
+    <!--<input type="date" class="form-control" id="exampleInputName2" name="bDate" [(ngModel)]="d1" >-->
   </div>
   <div class="form-group">
-    <label for="exampleInputName2">开始日期：</label>
-    <input type="date" class="form-control" id="exampleInputName2" >
+    <label for="endDate">结束日期</label>
+    <p-calendar [(ngModel)]="d2" name="d2" dateFormat="yy-mm-dd" showTime="true" id="endDate"></p-calendar>
+    <!--<input type="date" class="form-control" id="exampleInputEmail2" name="eDate" [(ngModel)]="d2" >-->
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2">结束日期</label>
-    <input type="date" class="form-control" id="exampleInputEmail2">
+    <label for="endDate">成功标志：</label>
+    <input type="checkbox" class="form-control" id="exampleInputEmail2" name="eDate" [(ngModel)]="success">
   </div>
-
-  <button type="submit" class="btn btn-default">查询</button>
+  <button type="submit" class="btn btn-default" (click)="submit()">查询</button>
 
 </form>
+<div *ngIf="resultList">
+  <p-dataTable [value]="resultList">
+    <p-column field="id" header="id"></p-column>
+    <p-column field="openId" header="openId"></p-column>
+    <p-column field="totalFee" header="金额"></p-column>
+    <!--<p-column field="wishing" header="祝福语"></p-column>-->
+    <p-column field="remark" header="备注"></p-column>
+    <p-column field="sendDate" header="时间">
+      <ng-template let-col let-result="rowData" pTemplate="body">
+        <span>{{result[col.field]|longToDate}}</span>
+      </ng-template>
+    </p-column>
+    <!--<p-column field="sendResult" header="结果"></p-column>-->
+    <p-column field="returnMsg" header="失败信息" *ngIf="!success"></p-column>
+    <p-column field="lastResult" header="红包状态" *ngIf="success"></p-column>
+  </p-dataTable>
+</div>

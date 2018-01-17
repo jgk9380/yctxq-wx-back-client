@@ -1,3 +1,31 @@
-<p>
-  dev-paper works!
-</p>
+<form class="form-inline">
+
+  <div class="form-group">
+    <label for="fee">红包金额：</label>
+    <input type="number" class="form-control" id="fee" name="fee" [(ngModel)]="feeSize">
+  </div>
+  <button type="submit" class="btn btn-default" (click)="query()">查询</button>
+</form>
+
+
+<div *ngIf="resultList">
+  <p-dataTable [value]="resultList">
+    <p-column field="orderId" header="orderId"></p-column>
+    <p-column field="devNumber" header="devNumber"></p-column>
+    <p-column field="userNumber" header="userNumber"></p-column>
+    <!--<p-column field="wishing" header="祝福语"></p-column>-->
+    <p-column field="devOpenId" header="devOpenId"></p-column>
+    <p-column field="orderTime" header="时间">
+      <ng-template let-col let-result="rowData" pTemplate="body">
+        <span>{{result[col.field]|longToDate}}</span>
+      </ng-template>
+    </p-column>
+    <!--<p-column field="sendResult" header="结果"></p-column>-->
+    <p-column field="returnMsg" header="操作" *ngIf="!success">
+      <ng-template let-col let-result="rowData" pTemplate="body">
+        <span><button type="submit" class="btn btn-default" (click)="sendRedPaper(result)"
+                      class="btn  btn-info">发送红包</button></span>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</div>

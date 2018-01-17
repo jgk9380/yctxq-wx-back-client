@@ -9,15 +9,19 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {HttpClientModule} from "@angular/common/http";
 import { PaperQueryComponent } from './paper-query/paper-query.component';
-
+import {CalendarModule} from 'primeng/primeng';
+import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { LongToDatePipe } from './long-to-date.pipe';
 @NgModule({
   imports: [
     CommonModule,
     RedPaperRouteModule,
     FormsModule,
-    HttpClientModule
+    CalendarModule,
+    HttpClientModule,
+    DataTableModule
   ],
-  declarations: [MainComponent, DevPaperComponent, RandPaperComponent, PaperQueryComponent],
+  declarations: [MainComponent, DevPaperComponent, RandPaperComponent, PaperQueryComponent, LongToDatePipe],
   providers:[RedPaperService]
 
 })
