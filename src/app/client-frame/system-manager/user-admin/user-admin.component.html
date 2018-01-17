@@ -1,0 +1,30 @@
+<div style="margin-top: 0.5em;margin-left: 2em;">
+    <button type="button" pButton (click)="toggleFilter()">{{filterAble?'关闭查询':"打开查询"}}</button>
+    <!--<button type="button" pButton (click)="toggleShowAll(pd)">{{paged?'全部显示':"分页显示"}}</button>-->
+    <!--<button type="button" pButton >新建</button>-->
+    <!--<button type="button" pButton >编辑</button>-->
+</div>
+<div style="margin-top: 0.5em;  margin-left: 1em;"  >
+  <p-dataTable #pd [value]="luList" [paginator]="paged" [paginatorPosition]="top" [rows]="18"
+               [editable]="true"  [pageLinks]="10" [rowsPerPageOptions]="[10,20,200]"     [(selection)]="selectLoginUser" dataKey="name" [style]="{'width':'95%'}">
+    <p-column field="employee.depart.name" header="部门" [sortable]="true" [filter]="filterAble"></p-column>
+    <p-column field="name" header="工号" [sortable]="true" [filter]="filterAble"></p-column>
+    <p-column field="password" header="密码" [editable]="true"></p-column>
+    <p-column field="employee.name" header="姓名" [filter]="filterAble"></p-column>
+    <p-column field="isValid" header="有效否 "  [sortable]="true">
+      <ng-template let-col let-lu="rowData" let-ri="rowIndex" pTemplate="body">
+         <span   [ngStyle]="{'background-color':lu[col.field] ? '' : 'red'}" >{{lu[col.field]?'是':'否'}}</span>
+      </ng-template>
+    </p-column>
+    <p-column field="userRoles" header="权限"  [sortable]="true" [editable]="true">
+      <ng-template let-col let-lu="rowData" let-ri="rowIndex" pTemplate="body">
+        <span>{{lu[col.field].length}}</span><!--这个地方可以加个管道-->
+      </ng-template>
+      <!--<ng-template let-col let-lu="rowData" pTemplate="editor">-->
+        <!--<p-dropdown  [options]="roleSelectItem" [autoWidth]="false" [style]="{'width':'100%'}" ></p-dropdown>-->
+        <!--<span>{{lu[col.field]}}</span>-->
+      <!--</ng-template>-->
+    </p-column>
+  </p-dataTable>
+</div>
+

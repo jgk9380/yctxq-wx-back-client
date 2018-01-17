@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    #mask {
+      float: left;
+      width: 643px;
+      z-index: 100;
+      display: inline;
+      position: absolute;
+      left: 0;
+      height: 300px;
+      background-color: #CCCCCC;
+      overflow: hidden;
+      top: 0;
+      opacity: 0.2;
+      FILTER: alpha(opacity=20);
+      visibility: visible;
+    }
+
+    #dialog {
+      float: left;
+      width: 200px;
+      z-index: 101;
+      display: inline;
+      position: absolute;
+      height: 150px;
+      background-color: #FFFFCC;
+      overflow: hidden;
+      visibility: visible;
+      left: 100px;
+    }
+
+  </style>
+
+  <script>
+    function showDialog() {
+      document.getElementById("mask").style.visibility = "visible";
+      document.getElementById("dialog").style.visibility = "visible";
+    }
+    function hideDialog() {
+      document.getElementById("mask").style.visibility = "hidden";
+      document.getElementById("dialog").style.visibility = "hidden";
+    }
+  </script>
+</head>
+<body>
+<div id="mask"></div>
+<div id="dialog"></div>
+<button onclick="showDialog()">open</button>
+<button onclick="hideDialog()">close</button>
+</body>
+</html>
+
+
+<!--用CSS来控制DIV的属性，辅以JavaScript响应事件，就可以实现类似于桌面UI的对话框效果。-->
+<!--1. 基本原理-->
+<!--基本原理就是在网页里添加2个浮动的层，一个叫dialog，用于包含对话框的内容；另一个叫mask，用于模拟灰化。当mask层浮动时，位于mask层下的网页内容都不可以被选中。由于mask层是灰色、半透明的，所以mask层起到灰化背景、模式化的效果。-->
+<!--mask:   灰色  / 半透明 /   zindex = 100 / 与屏幕同大小-->
+<!--dialog:   白色 /  zindex = 101-->
+
+<!--2. 弹出对话框-->
+<!--
+css的visibility用于控制其显示或者隐藏,  left, top用于控制其位置, width, height控制其大小(BOX模型)。
+显然，在通常状态下，把mask和dialog设置为hidden；在需要弹出效果时，把mask和dialog设置为visible即可实现前述的模式对话框效果。
+【注】其他属性如float, display也要做出正确设置，模仿例
+-->

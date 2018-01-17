@@ -1,0 +1,44 @@
+<div><h2>新增订单</h2></div>
+
+<span>
+  <button (click)="submit()">提交</button>
+</span>
+
+<span *ngIf="info" style="color: red;">{{info}}</span>
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="type" class="col-sm-3 control-label">套餐：</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="type"  [(ngModel)]="order.type"  required name="type">
+        <option value="dwk">大王卡</option>
+        <option value="mxek">梦想E卡</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="userName" class="col-sm-3 control-label">用户姓名：</label>
+    <div class="col-sm-6">
+      <input class="form-control" id="userName" [(ngModel)]="order.certName" name="userName"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="certId" class="col-sm-3 control-label">身份证号：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="certId" [(ngModel)]="order.certId" name="certId">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="orderRemark" class="col-sm-3 control-label">订单备注：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="orderRemark" [(ngModel)]="order.orderRemark" name="orderRemark">
+    </div>
+  </div>
+
+
+</form>
+<span>
+  <button (click)="submit()">提交</button>
+</span>

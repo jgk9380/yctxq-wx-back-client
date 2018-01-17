@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS+JS确认框和对话框代码</title>
+
+  <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+  <link rel="stylesheet" type="text/css" href="css/zzsc-demo.css">
+  <style type="text/css">
+    #materialModal {
+      font-family: roboto;
+      color: #222;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: table;
+      z-index: 1000;
+    }
+
+    #materialModalCentered {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    #materialModalContent {
+      padding: 10px;
+      position: relative;
+      background: white;
+      width: 400px;
+      min-height: 200px;
+      margin: auto;
+      box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.4);
+      box-sizing: border-box;
+    }
+
+    #materialModalTitle {
+      margin: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    #materialModalText {
+      margin: 10px;
+      margin-bottom: 40px;
+    }
+
+    #materialModalButtons {
+      width: calc(100% - 20px);
+      position: absolute;
+      bottom: 0px;
+    }
+
+    .materialModalButton {
+      margin: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      float: right;
+      text-transform: uppercase;
+      padding: 10px;
+    }
+
+    #materialModal.hide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+      pointer-events: none;
+    }
+
+    #materialModal.hide #materialModalCentered {
+      transform: scale(0);
+      transition: transform 0.2s ease-out;
+    }
+
+    #materialModal.show {
+      opacity: 1;
+      transition: opacity 0.2s ease-in;
+    }
+
+    #materialModal.show #materialModalCentered {
+      transform: scale(1);
+      transition: transform 0.2s ease-in;
+    }
+  </style>
+  <script type="text/javascript" src="js/material-modal.js"></script>
+
+</head>
+<body>
+<div class="zzsc-container">
+  <div class="zzsc-content">
+    <button onclick="materialConfirm('标题','这里是内容',function(result){console.log(result)})">Show confirm</button>
+    <button onclick="materialAlert('标题','这里是内容',function(result){console.log(result)})">Show alert</button>
+  </div>
+</div>
+<div id="materialModal" onclick="closeMaterialAlert(event, false)" class="hide">
+  <div id="materialModalCentered">
+    <div id="materialModalContent" onclick="event.stopPropagation()">
+      <div id="materialModalTitle">
+        这里是标题
+      </div>
+      <div id="materialModalText">
+        这里是内容<br/>
+      </div>
+      <div id="materialModalButtons">
+        <div id="materialModalButtonOK" class="materialModalButton" onclick="closeMaterialAlert(event, true)">
+          确定
+        </div>
+        <div id="materialModalButtonCANCEL" class="materialModalButton" onclick="closeMaterialAlert(event, false)">
+          取消
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+  <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+  <p>来源：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人素材</a></p>
+</div>
+</body>
+</html>

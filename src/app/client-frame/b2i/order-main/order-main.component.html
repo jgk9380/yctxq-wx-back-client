@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs" >
+  <li><a routerLink="./add">下单</a></li>
+  <li><a routerLink="./myOrder">我的订单</a></li>
+  <li><a routerLink="./list">待处理订单</a></li>
+  <li><a routerLink="./checked">已处理订单</a></li>
+</ul>
+<span>共有待处理订单<span class="badge">{{bs.uncheckedOrder}}</span>，处理中订单<span class="badge">{{bs.checkingOrder}}</span></span>
+<router-outlet></router-outlet>

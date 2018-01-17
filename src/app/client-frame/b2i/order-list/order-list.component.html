@@ -1,0 +1,26 @@
+<div ><h2>待处理订单</h2></div>
+<span><button style="margin-top: 0.5em;margin-bottom: 0.5em;" (click)="refresh()" >更新待处理订单</button></span>
+
+<p>
+  <p-dataTable #pd [value]="bs.b2iArray" [style]="{'width':'95%'}" [rowStyleClass]="customRowClass"  [rowHover]="true"  (onRowDblclick)="dblClickRow($event)" >
+    <p-column field="id" header="id" ></p-column>
+    <p-column field="type" header="套餐" [style]="{'width':'6em'}">
+      <ng-template let-col let-order="rowData" let-ri="rowIndex" pTemplate="body">
+        <span>{{order[col.field]=='dwk'?'大王卡':(order[col.field]=='mxek'?'梦想E卡':'其他')}}</span>
+      </ng-template>
+    </p-column>
+    <p-column field="certName" header="身份证名称" [style]="{'width':'8em'}"></p-column>
+    <p-column field="certId" header="身份证号" [style]="{'width':'9em'}"></p-column>
+    <p-column field="orderRemark" header="备注" ></p-column>
+    <p-column field="orderLoginUserId" header="订单工号" ></p-column>
+    <p-column field="orderTime" header="订单时间" >
+      <ng-template let-col let-order="rowData" let-ri="rowIndex" pTemplate="body">
+        <span>{{order[col.field]|date:'MM-dd HH:mm'}}</span>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</p>
+
+<!--以上使用了自定义格式日期表达式，和几乎大部分语言的格式化日期表达式一样-->
+<!--y代表年，M大写代表月，d代码日，-->
+<!--h代表12小时制的小时，H大写代表24小时制，m小写代表分.-->

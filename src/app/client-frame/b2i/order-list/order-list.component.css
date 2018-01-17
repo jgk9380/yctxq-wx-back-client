@@ -1,0 +1,5 @@
+.checking-row {
+  /* TODO: first try this without '!important', but you might need it */
+  color: #ff0000;
+  background-color: #1b5f85;
+}

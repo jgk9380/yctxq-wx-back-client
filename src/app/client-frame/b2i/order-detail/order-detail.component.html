@@ -1,0 +1,54 @@
+<div><h2>订单详情</h2></div>
+<span>
+  <button (click)="back()">返回</button>
+</span>
+
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="orderId" class="col-sm-3 control-label">订单ID：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="orderId" [(ngModel)]="bs.currentOrder.id" name="orderId" disabled>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="userName" class="col-sm-3 control-label">用户姓名：</label>
+    <div class="col-sm-6">
+      <input class="form-control" id="userName" [(ngModel)]="bs.currentOrder.certName" name="userName" disabled></div>
+  </div>
+
+  <div class="form-group">
+    <label for="certId" class="col-sm-3 control-label">身份证号：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="certId" [(ngModel)]="bs.currentOrder.certId" name="certId" disabled>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="orderRemark" class="col-sm-3 control-label">订单备注：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="orderRemark" [(ngModel)]="bs.currentOrder.orderRemark"      name="orderRemark" disabled>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label  class="col-sm-3 control-label">订单时间：</label>
+    <div class="col-sm-6">
+      <!--<input type="date" class="form-control" id="orderTime" [(ngModel)]="bs.currentOrder.orderTime" name="orderTime"   >-->
+      {{bs.currentOrder.orderTime|date:'MM-dd HH:mm'}}
+    </div>
+    <!--如果需要在表单中将一行纯文本和 label 元素放置于同一行，为 <p> 元素添加 .form-control-static 类即可。-->
+    <!--<p class="form-control-static">{{bs.currentOrder.orderTime|date:'MM-dd HH:mm'}}</p>-->
+  </div>
+  <div class="form-group">
+    <label for="checkOverRemark" class="col-sm-3 control-label">派单备注：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="checkOverRemark" [(ngModel)]="bs.currentOrder.checkOverRemark"  name="checkOverRemark" disabled>
+    </div>
+  </div>
+</form>
+<span>
+  <button (click)="back()">返回</button>
+
+</span>

@@ -1,0 +1,38 @@
+<br>
+<form class="form-horizontal ">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="col-sm-offset-2 col-sm-2">openId:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="openId或电话号码" name="openId"
+             [(ngModel)]="openId"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="col-sm-offset-2  col-sm-2">金额：</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="0" name="totalFee" [(ngModel)]="totalFee">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="wish" class="col-sm-offset-2  col-sm-2">祝福：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="wish" placeholder="恭喜发财，生意兴隆！" name="wishing" [(ngModel)]="wishing">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="remark" class="col-sm-offset-2  col-sm-2">备注：</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="remark" placeholder="备注"   name="remark" [(ngModel)]="remark">
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="col-sm-offset-4  col-sm-2 btn btn-default " (click)="submit()">提交</button>
+  </div>
+</form>
+
+
+<!--在ng2表单中使用ngModel需要注意,必须带有name属性或者使用 [ngModelOptions]=”{standalone: true}”，-->

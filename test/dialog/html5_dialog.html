@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    dialog {
+      visibility: hidden;
+      transform: scale(0.1);
+      transition: transform 200ms;
+    }
+
+    dialog.dialog-scale {
+      visibility: visible;
+      transform: scale(1);
+    }
+
+
+  </style>
+</head>
+<body>
+<button id="delete-account">del</button>
+<button id="confirm-delete">del</button>
+<div>
+  <dialog></dialog>
+</div>
+<section>
+  <dialog></dialog>
+</section>
+<dialog></dialog>
+</body>
+<script>
+  var $accountDelete = $('#delete-account');
+  var $accountDeleteDialog = $('#confirm-delete');
+
+  $accountDelete.on('click', function () {
+    $accountDeleteDialog[0].showModal();
+  });
+  $('#cancel').on('click', function () {
+    $accountDeleteDialog[0].close();
+  });
+  var transition;
+  $accountDelete.on('click', function () {
+    $accountDeleteDialog[0].showModal();
+    transition = setTimeout(function () {
+      $accountDeleteDialog.addClass('dialog-scale');
+    }, 0.5);
+  });
+
+  $('#cancel').on('click', function () {
+    $accountDeleteDialog[0].close();
+    $accountDeleteDialog.removeClass('dialog-scale');
+    clearTimeout(transition);
+  });
+
+
+</script>
+</html>
