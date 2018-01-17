@@ -11,6 +11,7 @@ export class GlobalService {
       //console.log("------------------ at:" + window.location.hostname);
        return "http://"+window.location.hostname+":8888/";
     }
+    console.log("this._RestBaseUrl="+this._RestBaseUrl);
     return this._RestBaseUrl;
   }
   msgs: Message[] = [];

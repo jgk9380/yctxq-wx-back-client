@@ -74,8 +74,10 @@ export class LoginService {
     console.log("登录成功" + JSON.stringify(response.json()));
     this.extraData(returnData);
     console.info("prePath="+this.prePath);
-   // router.navigate([this.prePath?this.prePath:"frame"]);
-    router.navigateByUrl((!this.prePath||this.prePath=="/login"||this.prePath=="/")?"/frame":this.prePath)
+    //todo 这个地方有问题
+    // router.navigate([this.prePath?this.prePath:"frame"]);
+    router.navigate(["frame"]);
+    //router.navigateByUrl((!this.prePath||this.prePath=="/login"||this.prePath=="/")?"/frame":this.prePath)
 
     Promise.resolve(true);
   }
