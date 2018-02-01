@@ -12,7 +12,8 @@ import {GlobalService} from "../../../base/global-config.service";
 export class PaperQueryComponent implements OnInit {
   d2 = new Date();
   d1 = new Date(this.d2.getTime() - 1000 * 3600 * 24);
-  success=true;
+  success = true;
+  flashStatus = false;
   resultList: any[];
 
   tele: string;
@@ -23,13 +24,14 @@ export class PaperQueryComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   submit() {
     console.log("d1=" + JSON.stringify(this.d1) + " " + typeof this.d1);
     console.log("tele=" + this.tele);
-    let url = this.gc.RestBaseUrl + "public/redPaper/list?date1=" + this.d1.getTime() + "&date2=" + this.d2.getTime()+"&success="+this.success;
+    if (this.resultList)
+      this.resultList.splice(0, this.resultList.length);
+    let url = this.gc.RestBaseUrl + "public/redPaper/list?date1=" + this.d1.getTime() + "&date2=" + this.d2.getTime() + "&success=" + this.success + "&flashStatus=" + this.flashStatus;
     this.httpClient.get(url).toPromise()
       .then(x => {
         //console.log(JSON.stringify(x));

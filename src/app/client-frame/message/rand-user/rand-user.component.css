@@ -1,0 +1,48 @@
+#user-list {
+  border-right: #0d080a;
+  border-right-width: 2px;
+}
+
+.left {
+  float: left;
+  width: 200px;
+  height: 35em;
+  background-color: #fff2fb;
+  /*margin-bottom: 1em;*/
+}
+
+.right {
+  background-color: #fff0ec;
+  margin-left: 210px;
+  margin-right: 5em;
+  height: 35em;
+  /*margin-bottom: 1em;*/
+}
+
+#content {
+  margin-top: 1em;
+}
+
+/*.right .message-list {*/
+/*margin-top: 1em;*/
+/*height: 33em;*/
+/*}*/
+
+/*.right .message-send-box {*/
+/*background-color: white;*/
+/*}*/
+
+/*#search-box {*/
+  /*position: absolute;*/
+  /*left: 4em;*/
+  /*z-index: 100;*/
+/*}*/
+/*#content{*/
+  /*position: absolute;*/
+  /*top: 1em;*/
+
+/*}*/
+
+
+
+

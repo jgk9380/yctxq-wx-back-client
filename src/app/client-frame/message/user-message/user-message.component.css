@@ -1,0 +1,32 @@
+.message-list {
+  margin-top: 1em;
+  height: 33em;
+  overflow: auto;
+}
+
+ .message-send-box {
+  background-color: white;
+}
+
+ .message{
+   padding: 0.2em;
+ }
+
+
+ .up{
+   background-color: #19a06d;
+   color: black;
+   border-radius:5px;
+   max-width: 40em;
+   margin-right: 1em;
+   /*alignment: right;*/
+ }
+
+ .down{
+   background-color: white;
+   color: black;
+   border-radius:5px;
+   max-width: 40em;
+   margin-left: 1em;
+   /*margin-left: 1em;*/
+ }

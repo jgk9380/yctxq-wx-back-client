@@ -1,0 +1,14 @@
+<form class="form-inline">
+  <!--<button (click)="refresh()" class="pull-left">刷新待回复用户</button>-->
+  <div id="search-out-box">
+    <label>查询用户：</label>
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value);"/>
+    <ul class="list-group" id="search-result-list">
+      <!--<li *ngFor="let user of wxUsers | async" (click)="addUserToList(user)" class="search-result list-group-item" >-->
+      <li *ngFor="let user of wxUsers | async" (click)="selectUser(user);searchBox.value='' "
+          class="search-result list-group-item">
+        {{user.nickname}}
+      </li>
+    </ul>
+  </div>
+</form>

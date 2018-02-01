@@ -17,7 +17,7 @@ export class NavBarService {
     // this.nbiItems.push(new NavBarItem("线下订单处理", "frame/b2i", null));
     // this.nbiItems.push(new NavBarItem("报表查询", "frame/test2", null));
     this.nbiItems.push(new NavBarItem("红包管理", "frame/redPaper/", ['ROLE_SYSTEM_ADMIN']));
-    this.nbiItems.push(new NavBarItem("信息回复", "frame/redPaper/", ['ROLE_SYSTEM_ADMIN']));
+    this.nbiItems.push(new NavBarItem("用户沟通", "frame/message/", ['ROLE_SYSTEM_ADMIN']));
     // this.nbiItems.push(new NavBarItem("系统管理", "frame/sysAdmin", ['ROLE_SYSTEM_ADMIN']));
   }
 

@@ -1,0 +1,30 @@
+<div class="message-list " *ngIf="messages">
+  <div *ngFor="let message of messages|async" class="message" >
+    <div [ngClass]="{'up': message.type=='up', 'down': message.type=='down','pull-right':message.type=='up','pull-left':message.type=='down'}" >
+      <!--'pull-right':message.type=='up','pull-left':message.type=='down',-->
+      {{message.content}}
+    </div>
+      <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="message-send-box">
+  <div class="form-group">
+    <form class="form-inline">
+      <label for="message">信息:</label>
+      <input type="text" class="form-control" id="message" #message_txt>
+      <button type="submit" class="btn btn-default" (click)="replayMessage(message_txt.value)">发送</button>
+      <button type="submit" class="btn btn-default" (click)="replayMessage('confirmAll')">确认</button>
+    </form>
+  </div>
+</div>
+
+<!--<div  *ngIf="wxUser">-->
+<!--{{wxUser.nickname}}-->
+  <!--&lt;!&ndash;{{messages|json}}&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div  *ngIf="wxUser">-->
+  <!--{{wxUser.id}}-->
+  <!--&lt;!&ndash;{{messages|json}}&ndash;&gt;-->
+<!--</div>-->

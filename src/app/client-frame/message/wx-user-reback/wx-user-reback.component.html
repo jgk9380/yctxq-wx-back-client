@@ -1,0 +1,32 @@
+
+<!--<div id="search-box">-->
+  <!--&lt;!&ndash;<http-client-wx-user-seach  (selectWxUser)="addUserToList($event)" (refreshUserList)="refresh($event)"></http-client-wx-user-seach>&ndash;&gt;-->
+  <!--<button (click)="refresh()" class="pull-left">刷新待回复用户</button>-->
+<!--</div>-->
+<!--<button (click)="refresh()">刷新用户</button>-->
+<!--<div id="content" class="row-fluid">-->
+<!--<div class="col-md-3" id="wx-user-list">-->
+<!--<h4>Sidebar</h4>-->
+<!--</div>-->
+<!--<div class="col-md-9">-->
+<!--<h2>Main Content Section</h2>-->
+<!--</div>-->
+<!--</div>-->
+<div id="refresh">
+
+</div>
+<ul class="nav nav-tabs" >
+  <li> <button (click)="refresh()" class="pull-left">待回复</button></li>
+  <li> <button (click)="newUserList()" class="pull-left">新关注</button></li>
+  <!--<li> <button (click)="refresh()" class="pull-left">活动用户</button></li>-->
+  <li> <button (click)="historyUserList()" class="pull-left">回复历史</button></li>
+</ul>
+<div id="content">
+  <div class="left" *ngIf="wxUserList.length>0">
+    <http-client-wx-user-list  [wxUserList]="wxUserList" [currentWxUser]="currentWxUser" (currentSelect)="select($event)" >
+    </http-client-wx-user-list>
+  </div>
+  <div class="right" *ngIf="currentWxUser">
+    <http-client-user-message [wxUser]="currentWxUser"  [messages]="messages" ></http-client-user-message>
+  </div>
+</div>

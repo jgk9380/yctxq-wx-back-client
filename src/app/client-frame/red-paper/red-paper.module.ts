@@ -19,7 +19,8 @@ import { LongToDatePipe } from './long-to-date.pipe';
     FormsModule,
     CalendarModule,
     HttpClientModule,
-    DataTableModule
+    DataTableModule,
+
   ],
   declarations: [MainComponent, DevPaperComponent, RandPaperComponent, PaperQueryComponent, LongToDatePipe],
   providers:[RedPaperService]

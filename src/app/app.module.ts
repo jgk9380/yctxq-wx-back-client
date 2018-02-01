@@ -20,17 +20,9 @@ import {Routes, RouterModule} from "@angular/router";
 import {ClientFrameModule} from "./client-frame/client-frame.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NotFoundComponent} from './not-found/not-found.component';
-import {FrameComponent} from "./client-frame/frame/frame.component";
-import {Test2Component} from "./client-frame/test2/test2.component";
-import {Test3Component} from "./client-frame/test3/test3.component";
-import {WpAddComponent} from "./work-plan/wp-add/wp-add.component";
-import {WplistComponent} from "./work-plan/wp-list/wplist.component";
-import {WpMainComponent} from "./work-plan/wp-main/wp-main.component";
-import {WpCompleteComponent} from "./work-plan/wp-complete/wp-complete.component";
-import {ClientFrameRouteModule} from "./client-frame/client-frame.route";
+
 import {WorkPlanModule} from "./work-plan/work-plan.module";
-import {WorkPlanRouteModule} from "./work-plan/work-plan.route";
-//import {AppRouterModule} from "./app-router.module1";
+
 import {SystemManagerModule} from "./client-frame/system-manager/system-manager.module";
 import {DropdownModule} from "primeng/components/dropdown/dropdown";
 

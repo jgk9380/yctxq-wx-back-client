@@ -1,0 +1,22 @@
+
+<div id="search-box">
+  <http-client-wx-user-seach  (selectWxUser)="addUserToList($event)" (refreshUserList)="refresh($event)"></http-client-wx-user-seach>
+</div>
+<!--<button (click)="refresh()">刷新用户</button>-->
+<!--<div id="content" class="row-fluid">-->
+<!--<div class="col-md-3" id="wx-user-list">-->
+<!--<h4>Sidebar</h4>-->
+<!--</div>-->
+<!--<div class="col-md-9">-->
+<!--<h2>Main Content Section</h2>-->
+<!--</div>-->
+<!--</div>-->
+<div id="content">
+  <div class="left" *ngIf="wxUserList.length>0">
+    <http-client-wx-user-list [wxUserList]="wxUserList" [currentWxUser]="currentWxUser" (currentSelect)="select($event)" >
+    </http-client-wx-user-list>
+  </div>
+  <div class="right" *ngIf="currentWxUser">
+    <http-client-user-message [wxUser]="currentWxUser"  [messages]="messages" ></http-client-user-message>
+  </div>
+</div>

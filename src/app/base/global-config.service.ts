@@ -12,7 +12,9 @@ export class GlobalService {
        return "http://"+window.location.hostname+":8888/";
     }
     console.log("this._RestBaseUrl="+this._RestBaseUrl);
-    return this._RestBaseUrl;
+     return this._RestBaseUrl;
+
+   // return "http://www.cu0515.com:8888/";
   }
   msgs: Message[] = [];
   constructor(public http:Http) {
@@ -39,7 +41,7 @@ export class GlobalService {
   getOptionBySql(sql:string):Promise<Option[]>{
 
     let emp_query_url = this._RestBaseUrl + "option/bySql/" + sql;
-    let headers = new Headers({'Content-Type': 'application/json'});
+    let headers = new Headers({'Content-Type': 'application/json;charset=utf-8'});
     headers.append('Accept', "application/json");
     return this.http.get(emp_query_url, {headers: headers})
       .toPromise().then(response => response.json() as Option[]).catch(this.handleError);
@@ -53,7 +55,6 @@ export class GlobalService {
     return Promise.reject(false);
   }
 }
-
 
 export  class  Option{
   label:string;

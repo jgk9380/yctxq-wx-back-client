@@ -7,7 +7,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {PaperQueryComponent} from "./paper-query/paper-query.component";
 
 
-const sysRoutes: Routes = [
+const routes: Routes = [
   { path: '', component: MainComponent,
     children: [
       {path: '',redirectTo:"dev",pathMatch:"full"},
@@ -21,7 +21,7 @@ const sysRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(sysRoutes),
+    RouterModule.forChild(routes),
   ],
   exports:[
     RouterModule,

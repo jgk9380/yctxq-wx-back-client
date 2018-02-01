@@ -1,7 +1,7 @@
 import {RouterModule, Routes, Route} from "@angular/router";
-import {Test2Component} from "./test2/test2.component";
+
 import {FrameComponent} from "./frame/frame.component";
-import {Test3Component} from "./test3/test3.component";
+
 import {NotFoundComponent} from "../not-found/not-found.component";
 import {NgModule} from "@angular/core";
 
@@ -20,13 +20,11 @@ const cfRoutes: Routes = [
     path: 'frame', component: FrameComponent,
     children: [
       // {path: '',redirectTo:"test3",pathMatch:"full"},
-      //{path: 'wp', component:WpMainComponent},
-      {path: 'test2', component: Test2Component},
-      {path: 'test3', component: Test3Component},
       {path: 'wp', loadChildren: 'app/work-plan/work-plan.module#WorkPlanModule'},
       {path: 'sysAdmin', loadChildren: 'app/client-frame/system-manager/system-manager.module#SystemManagerModule'},
       {path: 'b2i', loadChildren: 'app/client-frame/b2i/b2i.module#B2iModule'},
       {path: 'redPaper', loadChildren: 'app/client-frame/red-paper/red-paper.module#RedPaperModule'},
+      {path: 'message', loadChildren: 'app/client-frame/message/message.module#MessageModule'},
       {path: '**', component: NotFoundComponent},
     ]
   },

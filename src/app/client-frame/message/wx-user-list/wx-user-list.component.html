@@ -1,0 +1,8 @@
+<div class="list-group  " id="list-group">
+  <a class="list-group-item" *ngFor=" let us of wxUserList " (click)="clickUser(us)"
+     [ngStyle]="{'background-color':us.id==currentWxUser?.id? '#D2E2FF' : '#fff2fb' }">
+    {{us.nickname}}
+    <span class="badge">{{us.count}}</span>
+  </a>
+</div>
+

@@ -19,11 +19,28 @@
     <label for="endDate">成功标志：</label>
     <input type="checkbox" class="form-control" id="exampleInputEmail2" name="eDate" [(ngModel)]="success">
   </div>
+  <div class="form-group">
+    <label for="endDate">状态刷新：</label>
+    <input type="checkbox" class="form-control" id="flashStauts" name="eDate" [(ngModel)]="flashStatus">
+  </div>
   <button type="submit" class="btn btn-default" (click)="submit()">查询</button>
 
+    <!--<button *ngIf="resultList" type="button" pButton icon="fa-file-o" iconPos="left" label="导出数据" (click)="dt.exportCSV()"-->
+            <!--style="float:left"></button>-->
+
+  <!--<button type="submit" class="btn btn-default" (click)="submit()">export</button>-->
 </form>
-<div *ngIf="resultList">
-  <p-dataTable [value]="resultList">
+
+<div *ngIf="resultList ">
+  <button *ngIf=" resultList.length>0" type="button" pButton icon="fa-file-o" iconPos="left" label="导出数据" (click)="dt.exportCSV()" style="float:left"></button>
+  <p-dataTable [value]="resultList" #dt>
+    <!--<p-header>-->
+    <!--<div class="ui-helper-clearfix">-->
+    <!--<button type="button" pButton icon="fa-file-o" iconPos="left" label="All Data" (click)="dt.exportCSV()" style="float:left"></button>-->
+    <!--<button type="button" pButton icon="fa-file" iconPos="left" label="Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>-->
+    <!--</div>-->
+    <!--</p-header>-->
+
     <p-column field="id" header="id"></p-column>
     <p-column field="openId" header="openId"></p-column>
     <p-column field="totalFee" header="金额"></p-column>
